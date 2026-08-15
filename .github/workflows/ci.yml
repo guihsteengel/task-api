@@ -26,7 +26,7 @@ jobs:
           --health-retries 5
 
     steps:
-      - name: Checkout do código
+      - name: Checkout do codigo
         uses: actions/checkout@v4
 
       - name: Configurar Java 21
@@ -35,6 +35,9 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+
+      - name: Dar permissao de execucao ao mvnw
+        run: chmod +x mvnw
 
       - name: Rodar testes
         run: ./mvnw test
